@@ -4,6 +4,7 @@
 """
 
 class Day1:
+    ''''Class containing day 1 solutions'''
 
     __calibration_file = 'calibration_file.txt'
     __numbers = {'one': 1,
@@ -24,7 +25,7 @@ class Day1:
         """Part 1"""
         print('Part 1')
         cal_values_sum = 0
-        with open(Day1.__calibration_file, 'r+') as file:
+        with open(Day1.__calibration_file, 'r') as file:
             lines = file.readlines()
             for i in lines:
                 nums = [int(j) for j in i if j.isnumeric()]
