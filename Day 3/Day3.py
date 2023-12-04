@@ -3,9 +3,9 @@
 @date 01/12/2023
 """
 
-from string import whitespace
-
+# from string import whitespace
 import numpy as np
+from termcolor import colored
 
 
 class Day3:
@@ -97,7 +97,7 @@ class Day3:
     @staticmethod
     def part1():
         """Part 1"""
-        # Day3.__schematic = 'test.txt'
+        Day3.__schematic = 'test.txt'
         with open(Day3.__schematic, 'r') as file:
             lines = file.readlines()
         lines = [l.strip() for l in lines]  # removing end-line symbol
@@ -106,18 +106,21 @@ class Day3:
         print(f'Size of file: {nr}x{nc}')   # assuming #rows=#columns
         valid_points_matrix = Day3.get_part_points(lines=lines, nr=nr, nc=nc)
         # print(valid_points_matrix)
-        sum_parts = 0
+        parts = []
         # nums = []
         for l in range(len(lines)):
             line = lines[l]
+            for c in range(len(line)):
+                print(colored(line[c], 'red'), end='') if valid_points_matrix[l, c] == 1 else print(lines[l][c], end='')
+            print(' ', end='')
             for i in Day3.__symbols:
                 line = line.replace(i, '.')
-            print(line)
+            # print(line)
             nums = []
             for n in line.split('.'):
                 if n.isnumeric() and n not in nums:
                     nums.append(n)
-            parts = []
+            parts_line = []
             for n in nums:
                 j = 0
                 while True:
@@ -126,13 +129,17 @@ class Day3:
                         break
                     else:
                         if sum(valid_points_matrix[l, i:(i+len(n))]) > 0:
-                            parts.append(int(n))
+                            parts_line.append(int(n))
+                        else:
+                            print(n, end=' ')
                         # print(valid_points_matrix[l, i:(i+len(n))])
                     j = i+1
-            sum_parts += sum(parts)
-            print(f'{l+1}:', parts)
-        print('Sum of parts:', sum_parts)
-        return sum_parts
+            print(colored(f'{sum(parts_line)}', 'green'))
+            # print(f'{l+1}:', parts)
+            parts.append(sum(parts_line))
+        print(parts)
+        print('Sum of parts:', colored(f'{sum(parts)}', 'red'))
+        return sum(parts)
 
 
 if __name__ == '__main__':
