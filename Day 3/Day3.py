@@ -22,7 +22,6 @@ class Day3:
         for i in range(nr):
             for j in range(nc):
                 if lines[i][j] in Day3.__symbols:
-                    pass
                     if 0 < i < nr-1 and 0 < j < nc:
                         # upper row
                         valid_points_matrix[i-1][j-1] = 1
@@ -98,20 +97,13 @@ class Day3:
     @staticmethod
     def part1():
         """Part 1"""
-        Day3.__schematic = 'test.txt'
+        # Day3.__schematic = 'test.txt'
         with open(Day3.__schematic, 'r') as file:
             lines = file.readlines()
-        symbols = []
-        for i in range(len(lines)):
-            lines[i] = lines[i].strip()
-            # print(lines[i])
-            for l in lines[i]:
-                if not l.isnumeric() and l != '.':
-                    symbols.append(l)
-        # print(set(symbols))
+        lines = [l.strip() for l in lines]  # removing end-line symbol
         nr = len(lines)
         nc = len(lines[0])  # max(lines, key=lambda x: len(x)
-        print(f'Size of file: {nr}x{nc}')
+        print(f'Size of file: {nr}x{nc}')   # assuming #rows=#columns
         valid_points_matrix = Day3.get_part_points(lines=lines, nr=nr, nc=nc)
         # print(valid_points_matrix)
         sum_parts = 0
@@ -135,7 +127,7 @@ class Day3:
                     else:
                         if sum(valid_points_matrix[l, i:(i+len(n))]) > 0:
                             parts.append(int(n))
-                        print(valid_points_matrix[l, i:(i+len(n))])
+                        # print(valid_points_matrix[l, i:(i+len(n))])
                     j = i+1
             sum_parts += sum(parts)
             print(f'{l+1}:', parts)
