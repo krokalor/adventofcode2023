@@ -14,12 +14,12 @@ class Day3:
     __symbols = '@*/+#=$%-&'
 
     @staticmethod
-    def get_part_points(lines, nr, nc):
+    def get_part_points(lines, nr, nc, symbols):
         """Returns map of valid points"""
         valid_points_matrix = np.zeros((nr, nc))
         for i in range(nr):
             for j in range(nc):
-                if lines[i][j] in Day3.__symbols:
+                if lines[i][j] in symbols:
                     # upper row
                     valid_points_matrix[i - 1][j - 1] = 1
                     valid_points_matrix[i - 1][j] = 1
@@ -44,15 +44,15 @@ class Day3:
         lines = ['.'*nc] + lines + ['.'*nc]  # adding lines full of '.' at the start and the end of file
         nr = len(lines)
         print(f'Size of file: {nr}x{nc}')   # assuming #rows=#columns
-        valid_points_matrix = Day3.get_part_points(lines=lines, nr=nr, nc=nc)
+        valid_points_matrix = Day3.get_part_points(lines=lines, nr=nr, nc=nc, symbols=Day3.__symbols)
         # print(valid_points_matrix)
         parts = []
         # nums = []
-        for l in range(len(lines)):
+        for l in range(nr):
             line = lines[l]
             for i in Day3.__symbols:
                 line = line.replace(i, '.')
-            for c in range(len(line)):
+            for c in range(nc):
                 print(colored(line[c], 'red'), end='') if valid_points_matrix[l, c] == 1 else print(lines[l][c], end='')
             print(' ', end='')
             # print(line)
@@ -79,6 +79,29 @@ class Day3:
         print('Sum of parts:', colored(f'{sum(parts)}', 'red', attrs=["bold"]))
         return sum(parts)
 
+    @staticmethod
+    def part2():
+        """Part 2"""
+        Day3.__schematic = 'test.txt'
+        with open(Day3.__schematic, 'r') as file:
+            lines = file.readlines()
+        lines = [f'.{l.strip()}.' for l in lines]  # removing end-line symbol and adding '.' at the start and the end
+        nc = len(lines[0])  # max(lines, key=lambda x: len(x)
+        lines = ['.' * nc] + lines + ['.' * nc]  # adding lines full of '.' at the start and the end of file
+        nr = len(lines)
+        print(f'Size of file: {nr}x{nc}')  # assuming #rows=#columns
+        symbols = Day3.__symbols.replace('*', '')
+        for line in lines:
+            for s in symbols:
+                line = line.replace(s, '.')
+        # for i in range(1, nr-2):
+        #     numbers = []4
+        #     ls = lines[i:i+3]
+        #     for l in ls
+        #         numbers += [j for j in l.split('.') if j.isnumeric()]
+        #
+        #     if '*' in ls[1]
+
 
 if __name__ == '__main__':
-    Day3.part1()  # 535203, 533097 , 542390 <- too low, 559887, 550594 <- not right, 248999
+    Day3.part2()  # 535203, 533097 , 542390 <- too low, 559887, 550594 <- not right, 248999
