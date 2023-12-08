@@ -95,7 +95,7 @@ class Day3:
             for s in symbols:
                 line = line.replace(s, '.')
         # for i in range(1, nr-2):
-        #     numbers = []4
+        #     numbers = []
         #     ls = lines[i:i+3]
         #     for l in ls
         #         numbers += [j for j in l.split('.') if j.isnumeric()]
