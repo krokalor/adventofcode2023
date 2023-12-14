@@ -10,14 +10,14 @@ import numpy as np
 
 class Day5:
     """Day 5 solutions"""
-    __cards = 'input.txt'
+    __input = 'input.txt'
 
     @staticmethod
     def part1(test=True):
         """Part 1"""
         print('Running script for part 1 of day 5 of AoC23')
-        Day5.__cards = 'test.txt' if test else Day5.__cards
-        with open(Day5.__cards, 'r') as file:
+        Day5.__input = 'test.txt' if test else Day5.__input
+        with open(Day5.__input, 'r') as file:
             lines = file.readlines()
         seeds = [int(i) for i in lines[0].split(':')[1].strip().split(' ')]
         print('Seeds:', seeds, end='\n\n')
@@ -55,8 +55,8 @@ class Day5:
     def part2(test=True):
         """Part 2"""
         print('Running script for part 2 of day 5 of AoC23')
-        Day5.__cards = 'test.txt' if test else Day5.__cards
-        with open(Day5.__cards, 'r') as file:
+        Day5.__input = 'test.txt' if test else Day5.__input
+        with open(Day5.__input, 'r') as file:
             lines = file.readlines()
         seeds_ranges = [int(i) for i in lines[0].split(':')[1].strip().split(' ')]
         seeds_ranges_map = {}
