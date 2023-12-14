@@ -25,7 +25,7 @@ treb7uchet
 In this example, the calibration values of these four lines are 12, 38, 15, and 77. Adding these together produces 142.
 Consider your entire calibration document. What is the sum of all of the calibration values?
 
-Your puzzle answer was 54597.
+Your puzzle answer was ```54597```.
 
 ### --- Part Two ---
 
@@ -45,7 +45,7 @@ In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Addi
 
 What is the sum of all of the calibration values?
 
-Your puzzle answer was 54504.
+Your puzzle answer was ```54504```.
 
 ## Day 2: Cube Conundrum
 
@@ -75,7 +75,7 @@ In the example above, games 1, 2, and 5 would have been possible if the bag had 
 
 Determine which games would have been possible if the bag had been loaded with only 12 red cubes, 13 green cubes, and 14 blue cubes. What is the sum of the IDs of those games?
 
-Your puzzle answer was 2683.
+Your puzzle answer was ```2683```.
 
 ### --- Part Two ---
 
@@ -101,7 +101,7 @@ The power of a set of cubes is equal to the numbers of red, green, and blue cube
 
 For each game, find the minimum set of cubes that must have been present. What is the sum of the power of these sets?
 
-Your puzzle answer was 49710.
+Your puzzle answer was ```49710```.
 
 ## Day 3: Gear Ratios
 
@@ -134,7 +134,7 @@ In this schematic, two numbers are not part numbers because they are not adjacen
 
 Of course, the actual engine schematic is much larger. What is the sum of all of the part numbers in the engine schematic?
 
-Your puzzle answer was 549908.
+Your puzzle answer was ```549908```.
 
 ## Day 4: Scratchcards
 
@@ -172,7 +172,7 @@ So, in this example, the Elf's pile of scratchcards is worth 13 points.
 
 Take a seat in the large pile of colorful cards. How many points are they worth in total?
 
-Your puzzle answer was 20117.
+Your puzzle answer was ```20117```.
 
 ### --- Part Two ---
 
@@ -205,7 +205,7 @@ Once all of the originals and copies have been processed, you end up with 1 inst
 
 Process all of the original and copied scratchcards until no more scratchcards are won. Including the original set of scratchcards, how many total scratchcards do you end up with?
 
-Your puzzle answer was 13768818.
+Your puzzle answer was ```13768818```.
 
 ## Day 5: If You Give A Seed A Fertilizer
 
@@ -307,7 +307,7 @@ So, the lowest location number in this example is 35.
 
 What is the lowest location number that corresponds to any of the initial seed numbers?
 
-Your puzzle answer was 51752125.
+Your puzzle answer was ```51752125```.
 
 ## Day 6: Wait For It
 The ferry quickly brings you across Island Island. After asking around, you discover that there is indeed normally a large pile of sand somewhere near here, but you don't see anything besides lots of water and the small island where the ferry has docked.
@@ -352,3 +352,25 @@ In the third race, you could hold the button for at least 11 milliseconds and no
 To see how much margin of error you have, determine the number of ways you can beat the record in each race; in this example, if you multiply these values together, you get 288 (4 * 8 * 9).
 
 Determine the number of ways you could beat the record in each race. What do you get if you multiply these numbers together?
+
+Your puzzle answer was ```1710720```.
+
+### --- Part Two ---
+
+As the race is about to start, you realize the piece of paper with race times and record distances you got earlier actually just has very bad kerning. There's really only one race - ignore the spaces between the numbers on each line.
+
+So, the example from before:
+```
+Time:      7  15   30
+Distance:  9  40  200
+```
+...now instead means this:
+```
+Time:      71530
+Distance:  940200
+```
+Now, you have to figure out how many ways there are to win this single race. In this example, the race lasts for 71530 milliseconds and the record distance you need to beat is 940200 millimeters. You could hold the button anywhere from 14 to 71516 milliseconds and beat the record, a total of 71503 ways!
+
+How many ways can you beat the record in this one much longer race?
+
+Your puzzle answer was ```35349468```.

@@ -43,5 +43,30 @@ class Day6:
         return result
 
 
+    @staticmethod
+    def part2(test=True):
+        """Part 1"""
+        print('Running script for part 2 of day 6 of AoC23')
+        Day6.__input = 'test.txt' if test else Day6.__input
+        with open(Day6.__input, 'r') as file:
+            lines = file.readlines()
+        t = int(lines[0].split(':')[1].replace(' ', '').strip())
+        d = int(lines[1].split(':')[1].replace(' ', '').strip())
+        result = 1
+        hold = 1  # speed equals hold time
+        x = 0
+        margin_of_error = 0
+        while hold < t:
+            if x > d:
+                margin_of_error += 1
+                # print(hold, x)
+            hold += 1
+            y = t - hold
+            x = y*hold
+        print('Margin of error:', margin_of_error)
+        result *= margin_of_error
+        return result
+
+
 if __name__ == '__main__':
-    print('\nResult:', Day6.part1(False))
+    print('\nResult:', Day6.part2(False))
