@@ -82,6 +82,7 @@ class Day3:
     @staticmethod
     def part2():
         """Part 2"""
+        #TODO: finish part 2
         Day3.__schematic = 'test.txt'
         with open(Day3.__schematic, 'r') as file:
             lines = file.readlines()

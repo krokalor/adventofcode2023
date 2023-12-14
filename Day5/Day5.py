@@ -13,9 +13,10 @@ class Day5:
     __cards = 'input.txt'
 
     @staticmethod
-    def part1():
+    def part1(test=True):
         """Part 1"""
-        # Day5.__cards = 'test.txt'
+        print('Running script for part 1 of day 5 of AoC23')
+        Day5.__cards = 'test.txt' if test else Day5.__cards
         with open(Day5.__cards, 'r') as file:
             lines = file.readlines()
         seeds = [int(i) for i in lines[0].split(':')[1].strip().split(' ')]
@@ -51,16 +52,24 @@ class Day5:
         return lowest_location
 
     @staticmethod
-    def part2():
+    def part2(test=True):
         """Part 2"""
-        # Day5.__cards = 'test.txt'
+        print('Running script for part 2 of day 5 of AoC23')
+        Day5.__cards = 'test.txt' if test else Day5.__cards
         with open(Day5.__cards, 'r') as file:
             lines = file.readlines()
         seeds_ranges = [int(i) for i in lines[0].split(':')[1].strip().split(' ')]
-        seeds = []
-        for i in range(0, len(seeds_ranges), 2):
-            seeds += [seeds_ranges[i]+n for n in range(seeds_ranges[i+1])]
-        print('Seeds:', seeds, end='\n\n')
+        seeds_ranges_map = {}
+        for i in range(0, len(seeds_ranges)-1, 2):
+            seeds_ranges_map[seeds_ranges[i]] = seeds_ranges[i+1]
+        for i in seeds_ranges_map:
+            print(f'{i}: {seeds_ranges_map[i]}')
+            # TODO: optimize, too many seeds
+            # print(set(i+np.arange(seeds_ranges_map[i])))
+        # print('Length of seeds array:', len(seeds))
+        # seeds = set(seeds)
+        # print('Length of seeds set:', len(seeds))
+        # print('Seeds:', seeds, end='\n\n')
         '''
         lines = [i for i in lines[1:] if i != '\n']
         ind = [lines.index(i) for i in lines if ':' in i]
@@ -95,4 +104,4 @@ class Day5:
 
 
 if __name__ == '__main__':
-    Day5.part2()
+    Day5.part2(False)
