@@ -9,7 +9,6 @@ import numpy as np
 
 
 class Day7:
-    """Day 5 solutions"""
     __input = 'input.txt'
     __cards = '23456789TJQKA'
     __types = (['high card', 'one pair', 'two pairs', 'three of a kind',

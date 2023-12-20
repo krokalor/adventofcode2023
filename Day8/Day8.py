@@ -9,7 +9,6 @@ import numpy as np
 
 
 class Day8:
-    """Day 5 solutions"""
     __input = 'input.txt'
     __dir = {'L': 0, 'R': 1}
 

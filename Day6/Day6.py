@@ -9,7 +9,6 @@
 
 
 class Day6:
-    """Day 5 solutions"""
     __input = 'input.txt'
 
     @staticmethod
