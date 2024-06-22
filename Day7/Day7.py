@@ -1,6 +1,5 @@
 """
 @author Karol K
-@date 14/12/2023
 """
 
 # from string import whitespace
