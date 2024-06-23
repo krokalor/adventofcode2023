@@ -70,3 +70,5 @@ As you follow each left/right instruction, use that instruction to simultaneousl
 So, in this example, you end up entirely on nodes that end in `Z` after 6 steps.
 
 Simultaneously start on every node that ends with `A`. How many steps does it take before you're only on nodes that end with `Z`?
+
+Your puzzle answer was `13385272668829`.
